@@ -2,7 +2,7 @@
 
 // console.log(add(5, 5));
 
-import math from "./math.esm.mjs";
+import * as math from "./math.esm.mjs";
 
 const { add, subtract } = math;
 
