@@ -30,18 +30,17 @@
 /* Named exports: Both CommonJS and ES modules support named exports, which allow you to export multiple values from a module under different names. With named exports, you can import specific values from a module by their name.
 To use named exports with CommonJS, you can use the module.exports object and assign each value to a property: */
 
-// const add = (a, b) => {
-//   return a + b;
-// };
+const add = (a, b) => {
+  return a + b;
+};
 
-// const subtract = (a, b) => {
-//   return a - b;
-// };
-
-// module.exports = {
-//   add,
-//   subtract,
-// };
+const subtract = (a, b) => {
+  return a - b;
+};
+exports = {
+  add,
+  subtract,
+};
 
 // the above can be chanegd to below
 
@@ -56,10 +55,10 @@ To use named exports with CommonJS, you can use the module.exports object and as
 // and even further down to below
 // exports is a reference to to module.exports that is shorter to type although it is advised to used module.exports
 
-exports.add = (a, b) => {
-  return a + b;
-};
+// exports.add = (a, b) => {
+//   return a + b;
+// };
 
-exports.subtract = (a, b) => {
-  return a - b;
-};
+// exports.subtract = (a, b) => {
+//   return a - b;
+// };
