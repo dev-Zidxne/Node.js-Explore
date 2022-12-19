@@ -20,6 +20,7 @@ const math = require("./math");
 // console.log(add(2, 3));
 // console.log(subtract(2, 3));
 
-const data = require("./data.json");
+// const data = require("./data.json");
 
-console.log(data.name);
+// console.log(data.name);
+console.log("Hello Zidane");
