@@ -52,9 +52,9 @@ function greet(name) {
   console.log(`Hello ${name}`);
 }
 
-function greetZidane(greetFn) {
+function higherOrderFunction(callback) {
   const name = "Zidane";
-  greetFn(name);
+  callback(name);
 }
 
-greetZidane(greet);
+higherOrderFunction(greet);
