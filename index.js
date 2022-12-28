@@ -25,7 +25,7 @@
 // console.log(data.name);
 // console.log("Hello Zidane");
 
-const path = require("path");
+// const path = require("path");
 
 // console.log(path.extname(__filename));
 // console.log(path.extname(__dirname));
@@ -99,30 +99,50 @@ const path = require("path");
 // console.log(buffer);
 // console.log(buffer.toJSON());
 
-const fs = require("node:fs");
+const fs = require("node:fs/promises");
 
-console.log("First");
-const fileContents = fs.readFileSync("./file.txt", "utf-8");
-console.log(fileContents);
-
-console.log("Second");
-
-fs.readFile("./file.txt", "utf-8", (error, data) => {
-  if (error) {
-    console.log(error);
-  } else {
+async function readFile() {
+  try {
+    const data = await fs.readFile("file.txt", "utf-8");
     console.log(data);
-  }
-});
-
-console.log("Third");
-
-fs.writeFileSync("./greet.txt", "Hello Zidane!");
-
-fs.writeFile("./greet.txt", " Hello World!", { flag: "a" }, (err) => {
-  if (err) {
+  } catch (err) {
     console.log(err);
-  } else {
-    console.log("File Written");
   }
-});
+}
+
+readFile();
+
+// console.log("first");
+
+// fs.readFile("file.txt", "utf-8")
+//   .then((data) => console.log(data))
+//   .catch((error) => console.log(error));
+
+// console.log("second");
+// const fs = require("node:fs");
+
+// console.log("First");
+// const fileContents = fs.readFileSync("./file.txt", "utf-8");
+// console.log(fileContents);
+
+// console.log("Second");
+
+// fs.readFile("./file.txt", "utf-8", (error, data) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(data);
+//   }
+// });
+
+// console.log("Third");
+
+// fs.writeFileSync("./greet.txt", "Hello Zidane!");
+
+// fs.writeFile("./greet.txt", " Hello World!", { flag: "a" }, (err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("File Written");
+//   }
+// });
