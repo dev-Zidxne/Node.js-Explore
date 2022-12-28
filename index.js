@@ -91,10 +91,38 @@ const path = require("path");
 // pizzaShop.order("large", "mushrooms");
 // pizzaShop.displayOrderNumber();
 
-const buffer = new Buffer.from("Zidane");
+// const buffer = new Buffer.from("Zidane");
 
-buffer.write("code");
+// buffer.write("code");
 
-console.log(buffer.toString());
-console.log(buffer);
-console.log(buffer.toJSON());
+// console.log(buffer.toString());
+// console.log(buffer);
+// console.log(buffer.toJSON());
+
+const fs = require("node:fs");
+
+console.log("First");
+const fileContents = fs.readFileSync("./file.txt", "utf-8");
+console.log(fileContents);
+
+console.log("Second");
+
+fs.readFile("./file.txt", "utf-8", (error, data) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(data);
+  }
+});
+
+console.log("Third");
+
+fs.writeFileSync("./greet.txt", "Hello Zidane!");
+
+fs.writeFile("./greet.txt", " Hello World!", { flag: "a" }, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("File Written");
+  }
+});
