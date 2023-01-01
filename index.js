@@ -147,23 +147,33 @@
 //   }
 // });
 
-const fs = require("node:fs");
-const zlib = require("node:zlib");
+// const fs = require("node:fs");
+// const zlib = require("node:zlib");
 
-const gzip = zlib.createGzip();
+// const gzip = zlib.createGzip();
 
-const readableStream = fs.createReadStream("./file.txt", {
-  encoding: "utf-8",
-  highWaterMark: 2,
-});
+// const readableStream = fs.createReadStream("./file.txt", {
+//   encoding: "utf-8",
+//   highWaterMark: 2,
+// });
 
-readableStream.pipe(gzip).pipe(fs.WriteStream("./file2.txt.gz"));
+// readableStream.pipe(gzip).pipe(fs.WriteStream("./file2.txt.gz"));
 
-const writableStream = fs.createWriteStream("./file2.txt");
+// const writableStream = fs.createWriteStream("./file2.txt");
 
-readableStream.pipe(writableStream);
+// readableStream.pipe(writableStream);
 
 // readableStream.on("data", (chunk) => {
 //   console.log(chunk);
 //   writableStream.write(chunk);
 // });
+const http = require("node:http");
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plian" });
+  res.end("Hellow World!");
+});
+
+server.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
