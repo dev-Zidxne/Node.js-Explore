@@ -99,18 +99,18 @@
 // console.log(buffer);
 // console.log(buffer.toJSON());
 
-const fs = require("node:fs/promises");
+// const fs = require("node:fs/promises");
+// git;
+// async function readFile() {
+//   try {
+//     const data = await fs.readFile("file.txt", "utf-8");
+//     console.log(data);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
 
-async function readFile() {
-  try {
-    const data = await fs.readFile("file.txt", "utf-8");
-    console.log(data);
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-readFile();
+// readFile();
 
 // console.log("first");
 
@@ -146,3 +146,17 @@ readFile();
 //     console.log("File Written");
 //   }
 // });
+
+const fs = require("node:fs");
+
+const readableStream = fs.createReadStream("./file.txt", {
+  encoding: "utf-8",
+  highWaterMark: 2,
+});
+
+const writableStream = fs.createWriteStream(".file2.txt");
+
+readableStream.on("data", (chunk) => {
+  console.log(chunk);
+  writableStream.write(chunk);
+});
